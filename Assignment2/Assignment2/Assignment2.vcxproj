@@ -11,39 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractNode.h" />
-    <ClInclude Include="AssigningNode.h" />
     <ClInclude Include="Compiler.h" />
-    <ClInclude Include="ComputingNode.h" />
-    <ClInclude Include="ConvertingNode.h" />
-    <ClInclude Include="FloatConstingNode.h" />
-    <ClInclude Include="IntConstingNode.h" />
     <ClInclude Include="Nodes.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Phases.h" />
-    <ClInclude Include="PrintingNode.h" />
-    <ClInclude Include="ProgramNode.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="SymbolTablePhase.h" />
-    <ClInclude Include="SymDeclaringNode.h" />
-    <ClInclude Include="SymReferencingNode.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AbstractNode.cpp" />
-    <ClCompile Include="AssigningNode.cpp" />
     <ClCompile Include="Compiler.cpp" />
-    <ClCompile Include="ComputingNode.cpp" />
-    <ClCompile Include="ConvertingNode.cpp" />
-    <ClCompile Include="FloatConstingNode.cpp" />
-    <ClCompile Include="IntConstingNode.cpp" />
+    <ClCompile Include="Nodes.cpp" />
     <ClCompile Include="Parser.cpp" />
-    <ClCompile Include="PrintingNode.cpp" />
-    <ClCompile Include="ProgramNode.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="SymbolTablePhase.cpp" />
-    <ClCompile Include="SymDeclaringNode.cpp" />
-    <ClCompile Include="SymReferencingNode.cpp" />
     <ClCompile Include="Token.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
