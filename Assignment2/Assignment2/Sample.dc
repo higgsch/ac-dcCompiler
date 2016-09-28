@@ -1,0 +1,12 @@
+<float>b
+<int>a
+<ref>a=<I>5
+<ref>b=<ref>a+<F>3.2
+<Print>b
+
+<float>b
+<int>a
+<ref>a<I>5=
+<ref>b<ref>a<F>3.2+=
+<Print>b
+
