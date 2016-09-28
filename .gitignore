@@ -35,5 +35,5 @@
 *.tlog
 
 # Misc
-.idb
-.lastbuildstate
+*.idb
+*.lastbuildstate
