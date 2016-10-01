@@ -9,6 +9,7 @@
 // -----------------------------------------------------------------
 #include "Compiler.h"
 #include "SymbolTableAndTypingPhase.h"
+#include "CodeGeneratingPhase.h"
 #include "Parser.h"
 #include "Nodes.h"
 using namespace std;
@@ -29,11 +30,13 @@ void Compiler::run(string inFile, ostream * out)
 	//Initiate the compilation process
 	ProgramNode * root = p.getAST();
 
-	root->traverseNodes(new SymbolTableAndTypingPhase);
+	root->traverseNodes(new SymbolTableAndTypingPhase());
 	//stp.printSymbolTable();
 	
-	root->printNodesInOrder(out);
-	root->printNodesInPostOrder(out);
+	//root->printNodesInOrder(out);
+	//root->printNodesInPostOrder(out);
+
+	root->traverseNodesTopLevel(new CodeGeneratingPhase(out));
 }
 
 // ----------------------------------------------------------
@@ -73,7 +76,7 @@ int main(int argc, char* argv[])
 	c.run(inFile, &out);
 	out.close();*/
 
-	cout << "Press Enter to exit" << endl;
+	cout << "\nPress Enter to exit" << endl;
 	getchar();
 
 	return 0;

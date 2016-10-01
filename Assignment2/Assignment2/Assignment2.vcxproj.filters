@@ -36,6 +36,9 @@
     <ClInclude Include="SymbolTableAndTypingPhase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CodeGeneratingPhase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scanner.cpp">
@@ -54,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SymbolTableAndTypingPhase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CodeGeneratingPhase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

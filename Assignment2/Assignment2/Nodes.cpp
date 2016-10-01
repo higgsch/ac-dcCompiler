@@ -198,7 +198,7 @@ void ProgramNode::traverseNodesTopLevel(Phase * ph)
 {
 	for (int node = 0; node < currentNode; node++)
 	{
-		//progLines[node]->visit(ph);
+		progLines[node]->accept(ph);
 	}
 }
 

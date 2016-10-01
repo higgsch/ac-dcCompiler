@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CodeGeneratingPhase.h" />
     <ClInclude Include="Compiler.h" />
     <ClInclude Include="Nodes.h" />
     <ClInclude Include="Parser.h" />
@@ -20,6 +21,7 @@
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CodeGeneratingPhase.cpp" />
     <ClCompile Include="Compiler.cpp" />
     <ClCompile Include="Nodes.cpp" />
     <ClCompile Include="Parser.cpp" />

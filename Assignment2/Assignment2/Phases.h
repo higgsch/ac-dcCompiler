@@ -1,6 +1,8 @@
 // -----------------------------------------------------------------
 // This is the header for the Phase class.
 // -----------------------------------------------------------------
+#pragma once
+
 #include <string>
 #include <iostream>
 using namespace std;
