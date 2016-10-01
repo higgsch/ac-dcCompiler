@@ -99,8 +99,15 @@ void SymbolTablePhase::visit(AssigningNode * n)
 	{
 		//Error, type casting
 	}
+	else if (var->getDataType() == FLOAT && val->getDataType() == INTEGER)
+	{
+		//Converting val node
+		AbstractNode * conv = new ConvertingNode();
+		n->replaceRightChild(conv);
+		conv->addRightChild(val);
+	}
 
-	n->setDataType(val->getDataType());
+	n->setDataType(var->getDataType());
 }
 
 // ----------------------------------------------------------
@@ -140,7 +147,23 @@ void SymbolTablePhase::visit(ComputingNode * n)
 	right->accept(this);
 
 	if (left->getDataType() == FLOAT || right->getDataType() == FLOAT)
+	{
 		n->setDataType(FLOAT);
+		if (left->getDataType() == INTEGER)
+		{
+			//Converting left node
+			AbstractNode * conv = new ConvertingNode();
+			n->replaceLeftChild(conv);
+			conv->addRightChild(left);
+		}
+		else if (right->getDataType() == INTEGER)
+		{
+			//Converting right node
+			AbstractNode * conv = new ConvertingNode();
+			n->replaceRightChild(conv);
+			conv->addRightChild(right);
+		}
+	}
 	else 
 		n->setDataType(INTEGER);
 }

@@ -73,7 +73,6 @@ void AbstractNode::replaceLeftChild(AbstractNode * absNode)  // For converting n
 {
 	if (leftChild != NULL)
 	{
-		leftChild->setParent(NULL);
 		absNode->setParent(this);
 		absNode->setWhichSide(LEFT);
 		leftChild = absNode;
@@ -93,7 +92,6 @@ void AbstractNode::replaceRightChild(AbstractNode * absNode)  // For converting 
 {
 	if (rightChild != NULL)
 	{
-		rightChild->setParent(NULL);
 		absNode->setParent(this);
 		absNode->setWhichSide(RIGHT);
 		rightChild = absNode;
