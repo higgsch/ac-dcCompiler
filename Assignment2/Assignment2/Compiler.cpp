@@ -54,10 +54,24 @@ int main(int argc, char* argv[])
 	string inFile; //.ac filename
 	string outFile; //.dc filename
 
+	ostream * out;
+	ofstream outF;
+
 	if (argc > 2)
 	{ //filenames exist on command line
 		inFile = argv[1];
 		outFile = argv[2];
+
+		outF = ofstream();
+		outF.open(outFile);
+		out = &outF;
+
+		cout << "Starting Parse: " << inFile << " -> " << outFile << endl;
+	}
+	else if (argc > 1)
+	{
+		inFile = argv[1];
+		out = &cout;
 	}
 	else
 	{ //use default filenames
@@ -65,19 +79,17 @@ int main(int argc, char* argv[])
 		outFile = "Sample.dc";
 	}
 
-	cout << "Starting Parse: " << inFile << " -> " << outFile << endl;
-
 	Compiler c;
 
-	c.run(inFile, &cout);
+	c.run(inFile, out);
 
-	/*ofstream out = ofstream();
-	out.open(outFile);
-	c.run(inFile, &out);
-	out.close();*/
+	if (argc > 2)
+	{
+		outF.close();
 
-	cout << "\nPress Enter to exit" << endl;
-	getchar();
+		cout << "\nPress Enter to exit" << endl;
+		getchar();
+	}
 
 	return 0;
 }
