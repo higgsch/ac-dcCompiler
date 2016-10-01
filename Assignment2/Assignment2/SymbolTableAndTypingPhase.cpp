@@ -8,7 +8,7 @@
 // This program represents a visitor for building the symbol 
 // table and data typing the AST.
 // -----------------------------------------------------------------
-#include "SymbolTablePhase.h"
+#include "SymbolTableAndTypingPhase.h"
 #include "Nodes.h"
 #include <iostream>
 using namespace std;
@@ -18,7 +18,7 @@ using namespace std;
 //
 // Version 1.0
 // ----------------------------------------------------------
-SymbolTablePhase::SymbolTablePhase()
+SymbolTableAndTypingPhase::SymbolTableAndTypingPhase()
 {
 	// populate variable name space
 	int symbolOffset = 0;
@@ -49,7 +49,7 @@ SymbolTablePhase::SymbolTablePhase()
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::visit(SymDeclaringNode * n)	 
+void SymbolTableAndTypingPhase::visit(SymDeclaringNode * n)	 
 {
 	if (isDefined(n->getID()))
 	{
@@ -65,7 +65,7 @@ void SymbolTablePhase::visit(SymDeclaringNode * n)
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::visit(SymReferencingNode * n) 
+void SymbolTableAndTypingPhase::visit(SymReferencingNode * n) 
 {
 	if (!isDefined(n->getID()))
 	{
@@ -87,7 +87,7 @@ void SymbolTablePhase::visit(SymReferencingNode * n)
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::visit(AssigningNode * n)		 
+void SymbolTableAndTypingPhase::visit(AssigningNode * n)		 
 {
 	AbstractNode * val = n->getRightChild();
 	AbstractNode * var = n->getLeftChild();
@@ -116,7 +116,7 @@ void SymbolTablePhase::visit(AssigningNode * n)
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::visit(IntConstingNode * n)	 
+void SymbolTableAndTypingPhase::visit(IntConstingNode * n)	 
 {
 	//No op
 }
@@ -127,7 +127,7 @@ void SymbolTablePhase::visit(IntConstingNode * n)
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::visit(FloatConstingNode * n)	 
+void SymbolTableAndTypingPhase::visit(FloatConstingNode * n)	 
 {
 	//No op
 }
@@ -138,7 +138,7 @@ void SymbolTablePhase::visit(FloatConstingNode * n)
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::visit(ComputingNode * n)		 
+void SymbolTableAndTypingPhase::visit(ComputingNode * n)		 
 {
 	AbstractNode * left = n->getLeftChild();
 	AbstractNode * right = n->getRightChild();
@@ -174,7 +174,7 @@ void SymbolTablePhase::visit(ComputingNode * n)
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::visit(PrintingNode * n)		 
+void SymbolTableAndTypingPhase::visit(PrintingNode * n)		 
 {
 	if (!isDefined(n->getID()))
 	{
@@ -196,7 +196,7 @@ void SymbolTablePhase::visit(PrintingNode * n)
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::visit(ConvertingNode * n)	 
+void SymbolTableAndTypingPhase::visit(ConvertingNode * n)	 
 {
 	//No op
 }
@@ -207,7 +207,7 @@ void SymbolTablePhase::visit(ConvertingNode * n)
 //
 // Version 1.0
 // ----------------------------------------------------------
-bool SymbolTablePhase::isDefined(char id)
+bool SymbolTableAndTypingPhase::isDefined(char id)
 {
 	return symbolTable[mapIDToIndex(id)][1] != '0';
 }
@@ -219,7 +219,7 @@ bool SymbolTablePhase::isDefined(char id)
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::define(char id,data_type dt)
+void SymbolTableAndTypingPhase::define(char id,data_type dt)
 {
 	if (dt == data_type::INTEGER)
 		symbolTable[mapIDToIndex(id)][1] = 'i';
@@ -233,7 +233,7 @@ void SymbolTablePhase::define(char id,data_type dt)
 //
 // Version 1.0
 // ----------------------------------------------------------
-int SymbolTablePhase::mapIDToIndex(char id)
+int SymbolTableAndTypingPhase::mapIDToIndex(char id)
 {
 	if (id >= 'a' && id < 'f')
 		return id - 'a';
@@ -253,7 +253,7 @@ int SymbolTablePhase::mapIDToIndex(char id)
 //
 // Version 1.0
 // ----------------------------------------------------------
-char SymbolTablePhase::mapIndexToID(int index)
+char SymbolTableAndTypingPhase::mapIndexToID(int index)
 {
 	char sym = index + 'a';
 	if (sym >= 'a' && sym < 'f')
@@ -273,7 +273,7 @@ char SymbolTablePhase::mapIndexToID(int index)
 //
 // Version 1.0
 // ----------------------------------------------------------
-void SymbolTablePhase::printSymbolTable()
+void SymbolTableAndTypingPhase::printSymbolTable()
 {
 	for (int i = 0; i < 23; i++)
 	{

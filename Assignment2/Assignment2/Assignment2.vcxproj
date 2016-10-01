@@ -16,7 +16,7 @@
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Phases.h" />
     <ClInclude Include="Scanner.h" />
-    <ClInclude Include="SymbolTablePhase.h" />
+    <ClInclude Include="SymbolTableAndTypingPhase.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>
@@ -24,7 +24,7 @@
     <ClCompile Include="Nodes.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Scanner.cpp" />
-    <ClCompile Include="SymbolTablePhase.cpp" />
+    <ClCompile Include="SymbolTableAndTypingPhase.cpp" />
     <ClCompile Include="Token.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

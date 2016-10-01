@@ -13,7 +13,7 @@ using namespace std;
 //
 // Version 1.0
 // ----------------------------------------------------------
-class SymbolTablePhase : public Phase
+class SymbolTableAndTypingPhase : public Phase
 {
 private:
 	char symbolTable[23][2]; // storage location for variable information
@@ -24,7 +24,7 @@ private:
 	char mapIndexToID(int);
 
 public:
-	SymbolTablePhase();
+	SymbolTableAndTypingPhase();
 	void printSymbolTable();
 
 	void visit(SymDeclaringNode * n);

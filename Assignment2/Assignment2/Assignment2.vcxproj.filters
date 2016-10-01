@@ -33,7 +33,7 @@
     <ClInclude Include="Compiler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SymbolTablePhase.h">
+    <ClInclude Include="SymbolTableAndTypingPhase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,10 +50,10 @@
     <ClCompile Include="Compiler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SymbolTablePhase.cpp">
+    <ClCompile Include="Nodes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Nodes.cpp">
+    <ClCompile Include="SymbolTableAndTypingPhase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

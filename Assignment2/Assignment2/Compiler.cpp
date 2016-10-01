@@ -8,7 +8,7 @@
 // This program compiles an .ac source file to dc output.
 // -----------------------------------------------------------------
 #include "Compiler.h"
-#include "SymbolTablePhase.h"
+#include "SymbolTableAndTypingPhase.h"
 #include "Parser.h"
 #include "Nodes.h"
 using namespace std;
@@ -29,7 +29,7 @@ void Compiler::run(string inFile, ostream * out)
 	//Initiate the compilation process
 	ProgramNode * root = p.getAST();
 
-	root->traverseNodes(new SymbolTablePhase);
+	root->traverseNodes(new SymbolTableAndTypingPhase);
 	//stp.printSymbolTable();
 	
 	root->printNodesInOrder(out);
