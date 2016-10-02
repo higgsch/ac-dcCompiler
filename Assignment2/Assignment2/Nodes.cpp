@@ -139,7 +139,6 @@ void AbstractNode::printInOrder(ostream * out)
 // ----------------------------------------------------------
 ProgramNode::ProgramNode()
 {
-	//type = "program";
 	currentNode = 0;
 }
 
@@ -158,34 +157,6 @@ void ProgramNode::addNode(AbstractNode * absNode)
 	}
 	else
 		cout << "COMPILER ERROR: too many lines of code" << endl;
-}
-
-// ----------------------------------------------------------
-// AST traversal in order with visitor pattern.
-// @ph: The visitor to run over the AST.
-//
-// Version 1.0
-// ----------------------------------------------------------
-void ProgramNode::traverseNodesInOrder(Phase * ph)
-{
-	for (int node = 0; node < currentNode; node++)
-	{
-		//progLines[node]->visitInOrder(ph);
-	}
-}
-
-// ----------------------------------------------------------
-// AST traversal post order with visitor pattern.
-// @ph: The visitor to run over the AST.
-//
-// Version 1.0
-// ----------------------------------------------------------
-void ProgramNode::traverseNodesPostOrder(Phase * ph)
-{
-	for (int node = 0; node < currentNode; node++)
-	{
-		//progLines[node]->visitPostOrder(ph);
-	}
 }
 
 // ----------------------------------------------------------

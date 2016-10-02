@@ -31,10 +31,6 @@ void Compiler::run(string inFile, ostream * out)
 	ProgramNode * root = p.getAST();
 
 	root->traverseNodes(new SymbolTableAndTypingPhase());
-	//stp.printSymbolTable();
-	
-	//root->printNodesInOrder(out);
-	//root->printNodesInPostOrder(out);
 
 	root->traverseNodesTopLevel(new CodeGeneratingPhase(out));
 }

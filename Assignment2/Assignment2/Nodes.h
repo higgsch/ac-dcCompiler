@@ -202,11 +202,6 @@ public:
 		return val;
 	}
 
-	/*virtual void visitInOrder(Phase * ph) = 0;
-	virtual void visitPostOrder(Phase *ph) = 0;
-	virtual void visit(Phase *ph) = 0;
-	virtual void printInOrder() = 0;*/
-
 	// accept method for visitor pattern
 	virtual void accept(Phase*)=0;
 
@@ -228,19 +223,11 @@ private:
 	const static int MAXLINES = 100;   // DCL or STMT
 	AbstractNode * progLines[MAXLINES]; // collection of root nodes for each line
 	int currentNode; // index counter for progLines
-	//string type; //not used
 
 public:
 	ProgramNode();
 
-	/*string getType()
-	{
-		return type;
-	}*/
-
 	void addNode(AbstractNode * absNode);
-	void traverseNodesInOrder(Phase * ph);
-	void traverseNodesPostOrder(Phase * ph);
 	void traverseNodesTopLevel(Phase * ph);
 	void printNodesInOrder(ostream* out);
 	void printNodesInPostOrder(ostream* out);
