@@ -77,13 +77,19 @@ int main(int argc, char* argv[])
 	{ //use default filenames
 		inFile = "Sample.ac";
 		outFile = "Sample.dc";
+		
+		outF = ofstream();
+		outF.open(outFile);
+		out = &outF;
+
+		cout << "Starting Parse: " << inFile << " -> " << outFile << endl;
 	}
 
 	Compiler c;
 
 	c.run(inFile, out);
 
-	if (argc > 2)
+	if (argc > 2 || argc <= 1)
 	{
 		outF.close();
 
