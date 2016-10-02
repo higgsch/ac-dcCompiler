@@ -23,6 +23,8 @@ private:
 	int mapIDToIndex(char);
 	char mapIndexToID(int);
 
+	string ctos(char);
+
 public:
 	SymbolTableAndTypingPhase();
 	void printSymbolTable();

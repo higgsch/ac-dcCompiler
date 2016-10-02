@@ -11,6 +11,7 @@
 #include "SymbolTableAndTypingPhase.h"
 #include "Nodes.h"
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 // ----------------------------------------------------------
@@ -54,6 +55,7 @@ void SymbolTableAndTypingPhase::visit(SymDeclaringNode * n)
 	if (isDefined(n->getID()))
 	{
 		//Error, already defined
+		semantic_error(ctos(n->getID()) + " is already defined.");
 	}
 	else
 		define(n->getID(),n->getDataType());
@@ -70,6 +72,7 @@ void SymbolTableAndTypingPhase::visit(SymReferencingNode * n)
 	if (!isDefined(n->getID()))
 	{
 		//Error, variable not defined
+		semantic_error(ctos(n->getID()) + " is not defined.");
 	}
 	else
 	{
@@ -98,6 +101,7 @@ void SymbolTableAndTypingPhase::visit(AssigningNode * n)
 	if (var->getDataType() == INTEGER && val->getDataType() == FLOAT)
 	{
 		//Error, type casting
+		semantic_error("Illegal type cast when assigning " + ctos(var->getID()));
 	}
 	else if (var->getDataType() == FLOAT && val->getDataType() == INTEGER)
 	{
@@ -179,6 +183,7 @@ void SymbolTableAndTypingPhase::visit(PrintingNode * n)
 	if (!isDefined(n->getID()))
 	{
 		//Error, variable not defined
+		semantic_error(ctos(n->getID()) + " is not defined.");
 	}
 	else
 	{
@@ -286,4 +291,19 @@ void SymbolTableAndTypingPhase::printSymbolTable()
 		else
 			cout << symbolTable[i][0] << " caused an Error." << endl;
 	}
+}
+
+// ----------------------------------------------------------
+// This function converts a char to a string for ease of use.
+// @c: The char to convert.
+//
+// Version 1.0
+// ----------------------------------------------------------
+string SymbolTableAndTypingPhase::ctos(char c)
+{
+	stringstream ss;
+	string s;
+	ss << c;
+	ss >> s;
+	return s;
 }
