@@ -30,8 +30,10 @@ void Compiler::run(string inFile, ostream * out)
 	//Initiate the compilation process
 	ProgramNode * root = p.getAST();
 
+	//Build the symbol table and type the AST
 	root->traverseNodes(new SymbolTableAndTypingPhase());
 
+	//Generate output code to the out stream
 	root->traverseNodesTopLevel(new CodeGeneratingPhase(out));
 }
 
