@@ -1,9 +1,18 @@
+// -----------------------------------------------------------------
+// This is the header for the CodeGeneratingPhase class.
+// -----------------------------------------------------------------
 #pragma once
 
 #include "Phases.h"
 #include "Nodes.h"
 using namespace std;
 
+// ----------------------------------------------------------
+// This class represents a visitor for generating output code
+// that reflects the current AST.
+//
+// Version 1.0
+// ----------------------------------------------------------
 class CodeGeneratingPhase : public Phase
 {
 private:

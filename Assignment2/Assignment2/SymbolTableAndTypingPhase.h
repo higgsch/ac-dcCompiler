@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------
-// This is the header for the SymbolTablePhase class.
+// This is the header for the SymbolTableAndTypingPhase class.
 // -----------------------------------------------------------------
 #pragma once
 
